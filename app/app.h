@@ -12,7 +12,7 @@ namespace vsite::oop::v8
 	// Apstraktna klasa za izuzetke kalkulatora
 	class calculator_exception {
 	public:
-		virtual const std::string what() const noexcept = 0;
+		virtual std::string what() const noexcept = 0;
 		virtual ~calculator_exception() = default;
 	};
 
@@ -24,21 +24,21 @@ namespace vsite::oop::v8
 
 	class not_operator : public calculator_exception {
 	public:
-		const std::string what() const noexcept override {
+		std::string what() const noexcept override {
 			return "Not a valid operator";
 		}
 	};
 
 	class not_number : public calculator_exception {
 		public:
-		const std::string what() const noexcept override {
+		std::string what() const noexcept override {
 			return "Not a valid number";
 		}
 	};
 
 	class divide_zero : public calculator_exception {
 		public:
-		const std::string what() const noexcept override {
+		std::string what() const noexcept override {
 			return "Division by zero";
 		}
 	};
